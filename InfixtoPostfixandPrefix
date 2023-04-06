@@ -102,7 +102,7 @@ int main(){
             }
             printf("%d %c ",arrOfItems[i].num,arrOfItems[i].operation);
         }
-        turn_struct_to_string(str);printf("%s\n",str);
+        turn_struct_to_string(str);
         system("pause");
         convert_to_postfix(str, postfix);printf("%s\n", postfix);
         system("pause");system("cls");
