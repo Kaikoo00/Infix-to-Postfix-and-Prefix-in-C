@@ -86,7 +86,6 @@ char* convert_to_postfix(char *str, char *postfix_string){
 }
 
 char* convert_to_prefix(char *str, char *prefix){
-    printf("masih error jangan dipakai\n");
     strrev(str);
     sprintf(prefix, "%c", str[0]);
     int i=1;
