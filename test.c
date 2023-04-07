@@ -122,11 +122,15 @@ char* convert_to_prefix(char *str, char *prefix){
 }
 
 int main(){
-    while(true){
+    // printf("\033[47m"); // set background color to white
+    // printf("\033[30m"); // set text color to black
+    system("cls");
+    loop:
         char str[50], answer[50];
-        printf("How many numbers: ");
+        printf("==================Infix to Postfix and Prefix Training==================\n\n");
+        printf("How many numbers would you like to input into the mathematical equation: ");
         int amount; scanf("%d", &amount); getchar();
-        printf("\nSoal: ");
+        printf("\n| Infix: ");
         for(int i=0; i<amount; i++){
             size++;
             arrOfItems[i] = generate_random_math_operation();
@@ -134,7 +138,7 @@ int main(){
             if(i==amount-1){
                 arrOfItems[i]=(math){.op_value=0,.operation='\0'};
                 arrOfItems[i].num = generate_random_num();
-                printf("%d\n", arrOfItems[i].num);
+                printf("%d |\n", arrOfItems[i].num);
                 break;
             }
             printf("%d %c ",arrOfItems[i].num,arrOfItems[i].operation);
@@ -142,7 +146,9 @@ int main(){
         printf("\n");
         turn_struct_to_string(str);
         int ch; 
+
         jump:
+            printf("Turn into Postfix/Prefix?\n");
             printf("1. Postfix\n");
             printf("2. Prefix\n>>");
             scanf("%d", &ch);getchar();
@@ -155,15 +161,36 @@ int main(){
                 goto jump;
             }
 
-        printf("\nJawaban anda: ");
+        printf("\nYour Answer: ");
         char inp[30]; scanf("%[^\n]", inp); getchar();
         if(!strcmp(inp, answer)){
-            printf("\n|| Benar XDD ||\n");
+            printf("\n|| Correct XD ||\n");
         }else{
-            printf("\n|| Salah T_T ||\n");
-            printf("\nJawaban yang benar : %s\n", answer);
+            printf("\n|| Incorrect T_T ||\n");
+            printf("\nCorrect Answer : %s\n\n", answer);
         }
         system("pause");system("cls");
         size=0;
-    }
+        printf("Quit if ur a Pussy :O\n");
+        printf("1. Continue\n2. Quit\n>>");
+        int lanjut; scanf("%d", &lanjut); getchar();
+
+        invalid:
+            if(lanjut==1){
+                system("cls"); goto loop;
+            }
+            else if(lanjut==2) {
+                system("cls");
+                // printf("        xxx                 xxxxxxx         xxxxx                              xx    xx          \n");
+                // printf("xx  xx  xx   xx xxx        xx     xx        xx   xx  xx   xx  xxxxxxx  xxxxxxx  xx  xx        |||  \n");
+                // printf("xx  xx  x    xxx   xx      xx     xx        xx   xx  xx   xx  xx       xx        xxxx     === || ||\n");
+                // printf("xx  xx       xx     x      xx     xx        xxxxx    xx   xx  xxxxxxx  xxxxxxx    xx          || ||\n");
+                // printf("xx  xx       xx             xxxxxxxx        xx       xx   xx       xx       xx    xx      === || ||  \n");
+                // printf("xxxxxx       xx                    xxx      xx       xxxxxxx  xxxxxxx  xxxxxxx    xx          |||   \n\n\n");
+                printf("\n\n");
+                exit(0);
+            }
+            else goto invalid;
+
+    return 0;
 }
