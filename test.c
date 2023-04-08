@@ -10,7 +10,7 @@ typedef struct math_op{
     char op_value;
 }math;
 
-math arrOfItems[20];
+math arrOfItems[40];
 int size = 0;
 
 int precedence(char operator) {
@@ -55,7 +55,7 @@ char* convert_to_postfix(char *str, char *postfix_string){
     sprintf(postfix_string, "%c", str[0]);
     int i=1;
     int top = 0;
-    char stack[30]; stack[top]='(';
+    char stack[50]; stack[top]='(';
 
     while(str[i]!='\0'){
         if(isdigit(str[i])){
@@ -90,7 +90,7 @@ char* convert_to_prefix(char *str, char *prefix){
     sprintf(prefix, "%c", str[0]);
     int i=1;
     int top = 0;
-    char stack[30]; stack[top]='(';
+    char stack[50]; stack[top]='(';
 
     while(str[i]!='\0'){
         if(isdigit(str[i])){
@@ -126,7 +126,7 @@ int main(){
     // printf("\033[30m"); // set text color to black
     system("cls");
     loop:
-        char str[50], answer[50];
+        char str[100], answer[100];
         printf("==================Infix to Postfix and Prefix Training==================\n\n");
         printf("How many numbers would you like to input into the mathematical equation: ");
         int amount; scanf("%d", &amount); getchar();
